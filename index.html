@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Opciones de Grado Con Costo 2026-1 · Areandina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--verde:#7fb536;--verde-o:#6a9a2c;--magenta:#e6007e;--mag-cl:#ff3d9a;--naranja:#F59C2F;--negro:#000;--gris:#3a3a3a;--gris-cl:#f4f4f4}
+    html{scroll-behavior:smooth}
+    body{font-family:'Montserrat',sans-serif;background:#f8f8f8;color:var(--negro);line-height:1.6}
+    nav{position:sticky;top:0;z-index:100;background:var(--negro);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:62px;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+    .nav-logo{color:#fff;font-size:1rem;font-weight:700;display:flex;align-items:center;gap:10px}
+    .nav-logo .at{color:var(--verde);font-weight:800;letter-spacing:.05em}
+    .nav-links{display:flex;gap:1.6rem;list-style:none}
+    .nav-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;transition:color .2s}
+    .nav-links a:hover{color:var(--verde)}
+    .hero{background:var(--negro);padding:68px 5% 52px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-80px;right:-60px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(127,181,54,.14) 0%,transparent 65%)}
+    .hero::after{content:'';position:absolute;bottom:-50px;left:6%;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(230,0,126,.10) 0%,transparent 65%)}
+    .hero-top{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+    .badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:4px}
+    .badge-verde{background:var(--verde);color:#fff}
+    .badge-mag{background:rgba(230,0,126,.18);color:var(--mag-cl);border:1px solid rgba(230,0,126,.35)}
+    .hero h1{color:#fff;font-size:clamp(2rem,5vw,4rem);font-weight:800;text-transform:uppercase;line-height:1.08;margin-bottom:14px;letter-spacing:-.01em}
+    .hero h1 em{color:var(--verde);font-style:normal}
+    .hero-sub{color:rgba(255,255,255,.80);font-size:1.05rem;max-width:580px;font-weight:300;line-height:1.75}
+    .modalidades{background:#fff;padding:28px 5%;border-bottom:2px solid var(--gris-cl)}
+    .mod-titulo{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--gris);margin-bottom:14px}
+    .mod-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;max-width:1000px}
+    .mod-card{border-radius:5px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start}
+    .mod-card.md{background:#eaf5d5;border-left:4px solid var(--verde)}
+    .mod-card.mp{background:#fce4f2;border-left:4px solid var(--magenta)}
+    .mod-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+    .mod-body h4{font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+    .mod-card.md .mod-body h4{color:var(--verde-o)}
+    .mod-card.mp .mod-body h4{color:var(--magenta)}
+    .mod-body p{font-size:.85rem;color:var(--gris);font-weight:300;line-height:1.65}
+    .mod-body p strong{color:var(--negro);font-weight:700}
+    .mod-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+    .mod-chip{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:3px 9px;border-radius:20px;background:rgba(0,0,0,.08);color:var(--gris)}
+    .stats-bar{background:var(--verde);padding:16px 5%;display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+    .stat .num{font-size:1.5rem;font-weight:800;color:#fff;line-height:1}
+    .stat .lbl{font-size:.62rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.80);font-weight:600}
+    .stats-bar .sep{width:1px;height:36px;background:rgba(255,255,255,.3)}
+    .btn-inscribirse{margin-left:auto;display:inline-flex;align-items:center;gap:8px;background:var(--negro);color:#fff;text-decoration:none;font-size:.8rem;font-weight:800;padding:11px 22px;border-radius:4px;text-transform:uppercase;letter-spacing:.06em;transition:background .2s,transform .2s;white-space:nowrap;border:none;cursor:pointer}
+    .btn-inscribirse:hover{background:#222;transform:translateY(-1px)}
+    .filters-wrap{background:#fff;border-bottom:2px solid var(--gris-cl);padding:12px 5%;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .filter-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--gris);white-space:nowrap}
+    .filter-btn{border:1.5px solid #ddd;background:#fff;color:var(--gris);font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:600;padding:6px 14px;border-radius:20px;cursor:pointer;transition:all .15s;text-transform:uppercase;letter-spacing:.04em}
+    .filter-btn:hover{border-color:var(--negro);color:var(--negro)}
+    .filter-btn.active{background:var(--negro);color:#fff;border-color:var(--negro)}
+    .filter-btn.f-dip.active{background:var(--verde);border-color:var(--verde)}
+    .filter-btn.f-pos.active{background:var(--magenta);border-color:var(--magenta)}
+    .search-wrap{margin-left:auto;position:relative}
+    .search-input{border:1.5px solid #ddd;font-family:'Montserrat',sans-serif;font-size:.82rem;padding:7px 36px 7px 14px;border-radius:20px;outline:none;transition:border .2s;min-width:200px}
+    .search-input:focus{border-color:var(--verde)}
+    .search-icon{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#aaa;pointer-events:none}
+    main{padding:32px 5% 60px}
+    .section-head{display:flex;align-items:baseline;gap:12px;margin-bottom:22px}
+    .section-title{font-size:1.3rem;font-weight:800;text-transform:uppercase;color:var(--negro)}
+    .count-badge{background:var(--gris-cl);color:var(--gris);font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px}
+    .update-note{font-size:.7rem;color:var(--gris);font-weight:300;margin-left:auto;font-style:italic}
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
+    .card{background:#fff;border-radius:6px;box-shadow:0 2px 16px rgba(0,0,0,.08);border-top:5px solid var(--verde);display:flex;flex-direction:column;transition:transform .22s,box-shadow .22s;overflow:hidden}
+    .card.tipo-posgrado{border-top-color:var(--magenta)}
+    .card.tipo-presencial{border-top-color:var(--naranja)}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.13)}
+    .card-body{padding:20px 20px 0;flex:1}
+    .card-badges{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+    .cbadge{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:3px 9px;border-radius:3px}
+    .cbadge-dip{background:#eaf5d5;color:var(--verde-o)}
+    .cbadge-pos{background:#fce4f2;color:var(--magenta)}
+    .cbadge-pres{background:#fef3df;color:#b87200}
+    .cbadge-virt{background:#f0f0f0;color:#555}
+    .card h3{font-size:.88rem;font-weight:800;color:var(--negro);margin-bottom:12px;line-height:1.4;text-transform:uppercase}
+    .card-info{display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
+    .info-row{display:flex;gap:8px;align-items:flex-start}
+    .info-icon{font-size:.85rem;flex-shrink:0;margin-top:2px}
+    .info-label{font-size:.58rem;text-transform:uppercase;letter-spacing:.09em;color:#aaa;font-weight:700}
+    .info-value{font-size:.82rem;color:var(--gris);font-weight:400;line-height:1.4}
+    .info-value.hl{font-weight:800;color:var(--negro);font-size:.95rem}
+    .info-value.fecha-limite{color:var(--naranja);font-weight:700}
+    .card-asesor{background:var(--gris-cl);padding:10px 20px;border-top:1px solid #eee}
+    .asesor-label{font-size:.58rem;text-transform:uppercase;letter-spacing:.09em;color:#aaa;font-weight:700;margin-bottom:3px}
+    .asesor-name{font-size:.8rem;font-weight:700;color:var(--negro)}
+    .asesor-contact{font-size:.72rem;color:var(--gris);font-weight:300;margin-top:2px}
+    .card-footer{padding:12px 20px;border-top:1px solid #eee}
+    .btn-card{display:block;text-align:center;background:var(--negro);color:#fff;text-decoration:none;font-size:.72rem;font-weight:800;padding:10px;border-radius:4px;text-transform:uppercase;letter-spacing:.08em;transition:background .2s;cursor:pointer;border:none;width:100%}
+    .card.tipo-dip .btn-card:hover{background:var(--verde)}
+    .card.tipo-posgrado .btn-card:hover{background:var(--magenta)}
+    .btn-card:hover{background:#333}
+    .empty-state{text-align:center;padding:60px 20px;grid-column:1/-1}
+    .empty-state .e-icon{font-size:3rem;margin-bottom:10px}
+    .empty-state p{color:var(--gris);font-size:.95rem;font-weight:300}
+    .aclaraciones{background:#fff;border-radius:6px;box-shadow:0 2px 16px rgba(0,0,0,.07);padding:30px;margin-top:44px}
+    .acl-title{font-size:1rem;font-weight:800;text-transform:uppercase;color:var(--negro);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+    .acl-title::after{content:'';flex:1;height:2px;background:var(--gris-cl)}
+    .acl-list{display:flex;flex-direction:column;gap:9px}
+    .acl-item{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border-radius:4px;background:var(--gris-cl)}
+    .acl-num{width:22px;height:22px;border-radius:50%;background:var(--negro);color:#fff;font-size:.65rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+    .acl-item p{font-size:.85rem;color:var(--gris);line-height:1.65;font-weight:300}
+    .acl-item p strong{color:var(--negro);font-weight:700}
+    .acl-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .acl-btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:.72rem;font-weight:700;padding:9px 16px;border-radius:4px;text-transform:uppercase;letter-spacing:.05em;transition:background .2s}
+    .acl-btn.negro{background:var(--negro);color:#fff}.acl-btn.negro:hover{background:#333}
+    .acl-btn.gris{background:var(--gris-cl);color:var(--negro)}.acl-btn.gris:hover{background:#e0e0e0}
+    .financiacion{background:var(--negro);border-radius:6px;padding:30px;margin-top:18px}
+    .fin-title{font-size:1rem;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:16px}
+    .fin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+    .fin-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:4px;padding:16px}
+    .fin-card h4{font-size:.78rem;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px}
+    .fin-card p{font-size:.82rem;color:rgba(255,255,255,.70);font-weight:300;line-height:1.6}
+    .fin-card a{color:var(--verde);text-decoration:none;font-weight:600;border-bottom:1px solid rgba(127,181,54,.4)}
+    .fin-card a:hover{color:#fff}
+    .cta-section{background:var(--verde);text-align:center;padding:52px 5%;margin-top:44px;border-radius:6px}
+    .cta-title{font-size:1.8rem;font-weight:800;text-transform:uppercase;color:#fff;margin-bottom:10px}
+    .cta-sub{color:rgba(255,255,255,.90);font-size:1rem;font-weight:300;margin-bottom:26px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
+    .btn-cta{display:inline-block;background:var(--negro);color:#fff;text-decoration:none;font-size:.95rem;font-weight:800;padding:16px 46px;border-radius:4px;text-transform:uppercase;letter-spacing:.08em;box-shadow:0 6px 24px rgba(0,0,0,.2);transition:background .2s,transform .2s;cursor:pointer;border:none}
+    .btn-cta:hover{background:var(--magenta);transform:translateY(-2px)}
+    .cta-note{margin-top:12px;font-size:.78rem;color:rgba(255,255,255,.80)}
+    footer{background:#111;color:rgba(255,255,255,.35);text-align:center;font-size:.72rem;padding:18px 5%;border-top:3px solid var(--verde);margin-top:44px}
+    footer span{color:var(--verde)}
+    footer a{color:var(--verde);text-decoration:none}
+    @media(max-width:640px){.nav-links{display:none}.stats-bar{gap:14px}.btn-inscribirse{margin-left:0;width:100%;justify-content:center}.search-wrap{width:100%}.search-input{width:100%}.aclaraciones,.financiacion{padding:20px}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    .hero-top{animation:fadeUp .5s ease both .05s}.hero h1{animation:fadeUp .5s ease both .15s}.hero-sub{animation:fadeUp .5s ease both .25s}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="at">AREANDINA</span>
+    <span style="color:rgba(255,255,255,.3)">|</span>
+    <span>Opciones de Grado</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#modalidades">Modalidades</a></li>
+    <li><a href="#oferta">Oferta</a></li>
+    <li><a href="#aclaraciones">Condiciones</a></li>
+    <li><a href="#financiacion">Financiación</a></li>
+    <li><a href="#inscripcion">Inscribirme</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-top">
+    <span class="badge badge-verde">💰 Con Costo · 2026-1</span>
+    <span class="badge badge-mag">🎓 Admon. Empresas Virtual</span>
+  </div>
+  <h1>Opciones de Grado<br/><em>Con Costo</em></h1>
+  <p class="hero-sub">Diplomados y Créditos de Posgrado disponibles para estudiantes del programa de Administración de Empresas Virtual que deben cumplir el requisito de opción de grado. La oferta se actualiza mes a mes según los cupos habilitados por Educación Continua.</p>
+</section>
+
+<div class="modalidades" id="modalidades">
+  <div class="mod-titulo">¿En qué consiste cada modalidad?</div>
+  <div class="mod-grid">
+    <div class="mod-card md">
+      <div class="mod-icon">📑</div>
+      <div class="mod-body">
+        <h4>Diplomado</h4>
+        <p>Programa de educación continua de corta duración que profundiza en un área específica del conocimiento. No otorga título académico, pero sí un <strong>certificado de aprobación</strong> que cumple como requisito de opción de grado. Es 100% virtual o semipresencial.</p>
+        <div class="mod-chips">
+          <span class="mod-chip">120–160 horas</span>
+          <span class="mod-chip">2–4 meses</span>
+          <span class="mod-chip">Certificado de aprobación</span>
+          <span class="mod-chip">Virtual / Remoto</span>
+        </div>
+      </div>
+    </div>
+    <div class="mod-card mp">
+      <div class="mod-icon">📃</div>
+      <div class="mod-body">
+        <h4>Créditos de Posgrado</h4>
+        <p>Corresponde al primer semestre de una <strong>Especialización o Maestría</strong> de Areandina. Al aprobarlos, los créditos quedan convalidados si decides continuar el posgrado. Funcionan como opción de grado del pregrado y <strong>abren la puerta al título de posgrado</strong>.</p>
+        <div class="mod-chips">
+          <span class="mod-chip">14–15 créditos</span>
+          <span class="mod-chip">4 meses aprox.</span>
+          <span class="mod-chip">Convalidable al posgrado</span>
+          <span class="mod-chip">Virtual</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="num" id="stat-total">14</span><span class="lbl">Opciones disponibles</span></div>
+  <div class="sep"></div>
+  <div class="stat"><span class="num" id="stat-dip">9</span><span class="lbl">Diplomados</span></div>
+  <div class="sep"></div>
+  <div class="stat"><span class="num" id="stat-pos">5</span><span class="lbl">Créditos Posgrado</span></div>
+  <div class="sep"></div>
+  <div class="stat"><span class="num">Jul 2026</span><span class="lbl">Formulario abierto hasta</span></div>
+  <button class="btn-inscribirse" onclick="window.open('https://forms.gle/tsRJm3g5TKqAmvCn7','_blank')">✏️ Ir al formulario de inscripción</button>
+</div>
+
+<div class="filters-wrap">
+  <span class="filter-label">Filtrar:</span>
+  <button class="filter-btn active" onclick="setFilter('todos',this)">Todos</button>
+  <button class="filter-btn f-dip" onclick="setFilter('diplomado',this)">📑 Diplomados</button>
+  <button class="filter-btn f-pos" onclick="setFilter('posgrado',this)">📃 Créditos Posgrado</button>
+  <div class="search-wrap">
+    <input class="search-input" type="text" placeholder="Buscar programa..." id="search-input" oninput="applyFilters()"/>
+    <span class="search-icon">🔍</span>
+  </div>
+</div>
+
+<main id="oferta">
+  <div class="section-head">
+    <span class="section-title">Oferta actual</span>
+    <span class="count-badge" id="count-badge">14 opciones</span>
+    <span class="update-note" id="update-note">Actualizando desde Google Sheets...</span>
+  </div>
+  <div class="cards-grid" id="cards-grid"></div>
+
+  <div class="aclaraciones" id="aclaraciones">
+    <div class="acl-title">📌 Condiciones importantes</div>
+    <div class="acl-list">
+      <div class="acl-item"><div class="acl-num">1</div><p>Puedes aplicar una vez apruebes el <strong>70% del plan de estudios</strong> (desde 7° semestre en adelante).</p></div>
+      <div class="acl-item"><div class="acl-num">2</div><p>Si ya finalizaste tu plan de estudios, cuentas con un <strong>Período de Gracia</strong> para culminar la opción y graduarte (ver Acuerdo 045).</p></div>
+      <div class="acl-item"><div class="acl-num">3</div><p><strong>Solo aplican los programas de esta oferta.</strong> Los diplomados o especializaciones de la página institucional general NO son válidos como opción de grado.</p></div>
+      <div class="acl-item"><div class="acl-num">4</div><p>Realizar un programa en <strong>otra institución NO es válido</strong> como opción de grado de Areandina.</p></div>
+      <div class="acl-item"><div class="acl-num">5</div><p>Esta oferta <strong>no es homologable</strong> con ninguna asignatura del plan de estudios del pregrado.</p></div>
+      <div class="acl-item"><div class="acl-num">6</div><p>Los cupos son <strong>limitados</strong>. Se asignan una vez realices el pago en la fecha indicada. Si no pagas, el cupo se reasigna a estudiantes en espera.</p></div>
+      <div class="acl-item"><div class="acl-num">7</div><p>Si eliges una opción y <strong>no la cursas</strong>, debes esperar la próxima convocatoria para volver a radicar tu solicitud.</p></div>
+      <div class="acl-item"><div class="acl-num">8</div><p>Si <strong>ya realizas o cursas</strong> una opción de grado (Monografía, Creación de Empresa, Diplomado o Créditos de Posgrado), NO debes aplicar a esta oferta.</p></div>
+      <div class="acl-item"><div class="acl-num">9</div><p>La oferta se actualiza <strong>mes a mes</strong>. Si los cupos de una opción se agotan antes de la fecha límite, será retirada automáticamente del formulario.</p></div>
+    </div>
+    <div class="acl-btns">
+      <a href="https://cms.areandina.edu.co/sites/default/files/2024-12/Acuerdo%2030%20de%2023%20de%20agosto%20de%202024_0.pdf" target="_blank" class="acl-btn negro">📄 Acuerdo 086 — Opciones de Grado</a>
+      <a href="#" class="acl-btn gris">📄 Acuerdo 045 — Período de Gracia</a>
+    </div>
+  </div>
+
+  <div class="financiacion" id="financiacion">
+    <div class="fin-title">💵 Descuentos y Financiación</div>
+    <div class="fin-grid">
+      <div class="fin-card"><h4>Sobre los precios</h4><p>El Consejo Superior establece las tarifas. Ya incluyen beneficios para estudiantes. <strong style="color:#fff">No se aplica ningún descuento adicional.</strong></p></div>
+      <div class="fin-card"><h4>Crédito Institucional</h4><p>Solicita financiación con tu recibo de pago generado.<br/><br/><a href="https://www.areandina.edu.co/financiacion/institucional/credito-institucional-areandina" target="_blank">→ Solicitar crédito institucional</a></p></div>
+      <div class="fin-card"><h4>Entidades Aliadas</h4><p>Tasas preferenciales y más opciones de financiación externa.<br/><br/><a href="https://www.areandina.edu.co/financiacion/financiacion-externa" target="_blank">→ Ver financiación externa</a></p></div>
+      <div class="fin-card"><h4>Atención al Estudiante</h4><p>Para información sobre créditos y requisitos comunícate con la línea de atención de Areandina.<br/><br/><a href="https://cms.areandina.edu.co/sites/default/files/2022-05/canales-de-atencion-areandina-2022-actualizado.pdf" target="_blank">→ Canales de atención</a></p></div>
+    </div>
+  </div>
+
+  <div class="cta-section" id="inscripcion">
+    <div class="cta-title">¿Listo para inscribirte?</div>
+    <p class="cta-sub">Revisa la oferta, elige tu opción y completa el formulario. Los cupos son limitados y se asignan al realizar el pago.</p>
+    <button class="btn-cta" onclick="window.open('https://forms.gle/tsRJm3g5TKqAmvCn7','_blank')">✏️ Ir al formulario de inscripción</button>
+    <p class="cta-note">Formulario habilitado aproximadamente hasta julio de 2026</p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 · <span>AREANDINA</span> · Fundación Universitaria del Área Andina · Administración de Empresas Virtual · Vigilada MinEducación</p>
+  <p style="margin-top:5px">Oferta actualizada automáticamente desde Google Sheets · <a href="https://docs.google.com/spreadsheets/d/19DNYnmJrBnoEZqJetFz5YRqtC0Sf0-3vyvvx2-fZNHo/edit?usp=sharing" target="_blank">Ver fuente de datos</a></p>
+</footer>
+
+<script>
+// ─── DATOS BASE (siempre visibles, se actualizan desde Sheets si es posible) ──
+// Para actualizar la oferta: edita este array O actualiza el Google Sheets (ver instrucciones abajo)
+// COLUMNAS SHEETS: A=Nombre | B=Asesora | C=Fecha límite | D=Fecha inicio | E=Valor | F=Horario | G=Intensidad | H=Duración
+const SHEET_ID = '19DNYnmJrBnoEZqJetFz5YRqtC0Sf0-3vyvvx2-fZNHo';
+const FORM_URL  = 'https://forms.gle/tsRJm3g5TKqAmvCn7';
+
+const DATOS_BASE = [
+  {nombre:'Créditos de Posgrado en Gerencia Financiera', asesora:'Rossie Marquez', tel:'3232302934', email:'rmarquez8@areandina.edu.co', fechaLimite:'02 Julio 2026', fechaInicio:'13 Julio 2026', valor:'$4.263.000', horario:'Virtual', intensidad:'14 Créditos Académicos', duracion:'4 meses aprox.'},
+  {nombre:'Créditos de Posgrado en Seguridad y Salud en el Trabajo', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'02 Julio 2026', fechaInicio:'13 Julio 2026', valor:'$5.621.000', horario:'Virtual', intensidad:'14 Créditos Académicos', duracion:'4 meses aprox.'},
+  {nombre:'Créditos de Posgrado en Auditoría en Salud', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'02 Julio 2026', fechaInicio:'13 Julio 2026', valor:'$6.048.000', horario:'Virtual', intensidad:'14 Créditos Académicos', duracion:'4 meses aprox.'},
+  {nombre:'Diplomado en Big Data Business Analytics — PRESENCIAL Entre Semana (solo Bogotá)', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'30 Junio 2026', fechaInicio:'14 Julio 2026', valor:'$4.890.000', horario:'Presencial: Mar–Vie 6:00–10:00 pm', intensidad:'120 horas', duracion:'2 meses y medio aprox.'},
+  {nombre:'Diplomado en Academia SAP Software Business One — Sábados', asesora:'Rossie Marquez', tel:'3232302934', email:'rmarquez8@areandina.edu.co', fechaLimite:'03 Julio 2026', fechaInicio:'18 Julio 2026', valor:'$4.890.000', horario:'Remoto: sábados 8:00 am – 5:00 pm', intensidad:'120 horas', duracion:'4 meses y medio aprox.'},
+  {nombre:'Diplomado en Gestión Estratégica de Recursos Humanos', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'09 Julio 2026', fechaInicio:'20 Julio 2026', valor:'$4.290.000', horario:'Virtual (autónomo + 1 módulo sincrónico)', intensidad:'148 horas', duracion:'4 meses y 10 días'},
+  {nombre:'Diplomado en Gestión Integral de Proyectos', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'09 Julio 2026', fechaInicio:'20 Julio 2026', valor:'$4.290.000', horario:'Virtual (autónomo + 1 módulo sincrónico)', intensidad:'148 horas', duracion:'4 meses y 10 días'},
+  {nombre:'Diplomado en Social Media Management', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'09 Julio 2026', fechaInicio:'20 Julio 2026', valor:'$4.290.000', horario:'Virtual (autónomo + 1 módulo sincrónico)', intensidad:'148 horas', duracion:'4 meses y 10 días'},
+  {nombre:'Diplomado en Organizaciones Globales con Propósito y Gerencia Humanística', asesora:'Rossie Marquez', tel:'3232302934', email:'rmarquez8@areandina.edu.co', fechaLimite:'21 Julio 2026', fechaInicio:'03 Agosto 2026', valor:'$4.290.000', horario:'Virtual', intensidad:'120 horas', duracion:'2 meses y medio aprox.'},
+  {nombre:'Diplomado en Big Data Business Analytics — PRESENCIAL Sábados (solo Bogotá)', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'24 Julio 2026', fechaInicio:'08 Agosto 2026', valor:'$4.890.000', horario:'Presencial: sábados 8:00 am – 5:00 pm', intensidad:'120 horas', duracion:'4 meses y medio aprox.'},
+  {nombre:'Créditos de Posgrado en Alta Gerencia', asesora:'Rossie Marquez', tel:'3232302934', email:'rmarquez8@areandina.edu.co', fechaLimite:'27 Julio 2026', fechaInicio:'17 Agosto 2026', valor:'$4.319.000', horario:'Virtual', intensidad:'14 Créditos Académicos', duracion:'4 meses aprox.'},
+  {nombre:'Diplomado en Sistemas de Gestión de Seguridad y Salud en el Trabajo', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'10 Agosto 2026', fechaInicio:'24 Agosto 2026', valor:'$4.290.000', horario:'Virtual', intensidad:'159 horas', duracion:'2 meses y medio aprox.'},
+  {nombre:'Créditos de Posgrado en Maestría de Innovación (1er semestre)', asesora:'Rossie Marquez', tel:'3232302934', email:'rmarquez8@areandina.edu.co', fechaLimite:'17 Agosto 2026', fechaInicio:'31 Agosto 2026', valor:'$5.285.000', horario:'Virtual', intensidad:'15 Créditos Académicos', duracion:'4 meses aprox.'},
+  {nombre:'Créditos de Posgrado — Maestría en Gerencia del Mercadeo Digital (1er semestre)', asesora:'Jakeline Higuera', tel:'3208513765', email:'lhiguera4@areandina.edu.co', fechaLimite:'31 Agosto 2026', fechaInicio:'14 Septiembre 2026', valor:'$4.858.000', horario:'Virtual', intensidad:'14 Créditos Académicos', duracion:'4 meses aprox.'},
+];
+
+let allData = [...DATOS_BASE];
+let currentFilter = 'todos';
+
+// ─── MOSTRAR DATOS BASE INMEDIATAMENTE ────────────────────────────────────
+updateStats(allData);
+applyFilters();
+document.getElementById('update-note').textContent = '';
+
+// ─── INTENTAR ACTUALIZAR DESDE GOOGLE SHEETS EN SEGUNDO PLANO ────────────
+// Requiere que el Sheets tenga acceso público habilitado
+async function tryLoadFromSheets() {
+  try {
+    const url  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+    const res  = await fetch(url);
+    const text = await res.text();
+    const json = JSON.parse(text.substring(text.indexOf('{'), text.lastIndexOf('}') + 1));
+    const rows = json.table.rows.filter(r => r.c[0] && r.c[0].v);
+    if (rows.length < 2) return; // si hay muy pocos datos, no reemplazar
+    allData = rows.map(r => ({
+      nombre:      cell(r,0), asesora:     cell(r,1), fechaLimite: cell(r,2),
+      fechaInicio: cell(r,3), valor:       cell(r,4), horario:     cell(r,5),
+      intensidad:  cell(r,6), duracion:    cell(r,7),
+      tel: '', email: '',
+    })).filter(d => d.nombre && d.nombre.length > 2);
+    updateStats(allData);
+    applyFilters();
+    document.getElementById('update-note').textContent = '✅ Oferta actualizada desde Google Sheets';
+    setTimeout(() => { document.getElementById('update-note').textContent = ''; }, 4000);
+  } catch(e) {
+    // Falla silenciosa — los datos base ya están visibles
+    document.getElementById('update-note').textContent = '';
+  }
+}
+tryLoadFromSheets();
+
+function cell(row, idx) {
+  return row.c[idx] && row.c[idx].v ? String(row.c[idx].v).trim() : '';
+}
+function getTipo(nombre) {
+  const n = nombre.toUpperCase();
+  return (n.includes('CRÉDITO')||n.includes('CREDITO')||n.includes('MAESTRÍA')||n.includes('MAESTRIA')) ? 'posgrado' : 'diplomado';
+}
+function isPresencial(nombre, horario) {
+  return (nombre+(horario||'')).toUpperCase().includes('PRESENCIAL');
+}
+function updateStats(data) {
+  document.getElementById('stat-total').textContent = data.length;
+  document.getElementById('stat-dip').textContent   = data.filter(d=>getTipo(d.nombre)==='diplomado').length;
+  document.getElementById('stat-pos').textContent   = data.filter(d=>getTipo(d.nombre)==='posgrado').length;
+}
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+function applyFilters() {
+  const q = (document.getElementById('search-input').value||'').toLowerCase();
+  const filtered = allData.filter(d => {
+    return (currentFilter==='todos'||getTipo(d.nombre)===currentFilter)
+      && (!q||d.nombre.toLowerCase().includes(q)||(d.asesora||'').toLowerCase().includes(q));
+  });
+  renderCards(filtered);
+}
+function renderCards(data) {
+  document.getElementById('count-badge').textContent = data.length + (data.length===1?' opción':' opciones');
+  const grid = document.getElementById('cards-grid');
+  if (!data.length) {
+    grid.innerHTML = `<div class="empty-state"><div class="e-icon">🔍</div><p>No se encontraron opciones con ese criterio.</p></div>`;
+    return;
+  }
+  grid.innerHTML = data.map(d => {
+    const tipo = getTipo(d.nombre);
+    const pres = isPresencial(d.nombre, d.horario);
+    const cc   = tipo==='posgrado' ? 'tipo-posgrado' : pres ? 'tipo-presencial' : 'tipo-dip';
+    const tb   = tipo==='posgrado'
+      ? `<span class="cbadge cbadge-pos">Créditos Posgrado</span>`
+      : `<span class="cbadge cbadge-dip">Diplomado</span>`;
+    const mb   = pres
+      ? `<span class="cbadge cbadge-pres">Presencial</span>`
+      : `<span class="cbadge cbadge-virt">Virtual / Remoto</span>`;
+    const tel   = d.tel   || '';
+    const email = d.email || '';
+    return `
+    <div class="card ${cc}">
+      <div class="card-body">
+        <div class="card-badges">${tb}${mb}</div>
+        <h3>${d.nombre}</h3>
+        <div class="card-info">
+          <div class="info-row"><span class="info-icon">💰</span><div><div class="info-label">Valor matrícula</div><div class="info-value hl">${d.valor||'Consultar'}</div></div></div>
+          <div class="info-row"><span class="info-icon">⏰</span><div><div class="info-label">Fecha límite de inscripción</div><div class="info-value fecha-limite">${d.fechaLimite||'—'}</div></div></div>
+          <div class="info-row"><span class="info-icon">📅</span><div><div class="info-label">Fecha de inicio</div><div class="info-value">${d.fechaInicio||'—'}</div></div></div>
+          <div class="info-row"><span class="info-icon">📋</span><div><div class="info-label">Horario</div><div class="info-value">${d.horario||'—'}</div></div></div>
+          <div class="info-row"><span class="info-icon">⏱</span><div><div class="info-label">Intensidad · Duración</div><div class="info-value">${d.intensidad||'—'} · ${d.duracion||'—'}</div></div></div>
+        </div>
+      </div>
+      ${d.asesora ? `
+      <div class="card-asesor">
+        <div class="asesor-label">Asesora encargada</div>
+        <div class="asesor-name">${d.asesora}</div>
+        ${tel   ? `<div class="asesor-contact">📞 ${tel}</div>` : ''}
+        ${email ? `<div class="asesor-contact">✉️ ${email}</div>` : ''}
+      </div>` : ''}
+      <div class="card-footer">
+        <button class="btn-card" onclick="window.open('${FORM_URL}','_blank')">✏️ Inscribirme a esta opción</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+</script>
+</body>
+</html>
